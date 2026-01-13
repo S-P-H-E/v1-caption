@@ -12,6 +12,7 @@ use validator::ValidationError;
 use vercel_runtime::Error;
 use vercel_runtime::axum::VercelLayer;
 use yt_transcript_rs::{YouTubeTranscriptApi, proxies::GenericProxyConfig};
+use tower_http::cors::{Any, CorsLayer};
 
 async fn favicon() -> impl IntoResponse {
     (
@@ -241,11 +242,18 @@ async fn yt(Json(payload): Json<YTRequest>) -> Result<Json<YTResponse>, (StatusC
 #[tokio::main]
 async fn main() -> Result<(), Error> {
     dotenv().ok();
+    
+    // Add CORS layer
+    let cors = CorsLayer::new()
+        .allow_origin(Any)
+        .allow_methods(Any)
+        .allow_headers(Any);
 
     let router = Router::new()
         .route("/", get(hello))
         .route("/transcript", post(yt))
-        .route("/favicon.ico", get(favicon));
+        .route("/favicon.ico", get(favicon))
+        .layer(cors);
 
     let app = ServiceBuilder::new()
         .layer(VercelLayer::new())

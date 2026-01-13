@@ -2157,6 +2157,7 @@ dependencies = [
  "serde_json",
  "tokio",
  "tower",
+ "tower-http",
  "validator",
  "vercel_runtime",
  "yt-transcript-rs",
