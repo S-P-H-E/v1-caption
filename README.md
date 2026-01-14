@@ -14,6 +14,7 @@ A monorepo for downloading YouTube transcripts.
 - [x] Add proxy server
 - [ ] Add redis caching
 - [ ] Add rate limiting
+- [ ] Create Svelte UI
 
 ---
 Developed By Sphe
