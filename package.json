@@ -1,7 +1,7 @@
 {
   "name": "v1-caption",
   "scripts": {
-    "dev": "concurrently \"cd apps/server && cargo watch -x 'run -q'\" \"cd apps/frontend && bun dev\""
+    "dev": "concurrently -n server,frontend -c blue,green --kill-others \"cd apps/server && cargo watch -x 'run -q'\" \"cd apps/frontend && bun dev\""
   },
   "devDependencies": {
     "concurrently": "^9.2.1"
