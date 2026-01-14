@@ -9,6 +9,11 @@ A monorepo for downloading YouTube transcripts.
 
 *(These are located inside of the app folder.)*
 
-## Overview
+## To-do
 
-The Rust API handles transcript extraction from YouTube videos, routing requests through a proxy in production environments to ensure reliable access. The Svelte frontend offers a clean, user-friendly way to interact with the service without technical knowledge.
+- [x] Add proxy server
+- [ ] Add redis caching
+- [ ] Add rate limiting
+
+---
+Developed By Sphe
